@@ -1,0 +1,64 @@
+@code_type c .c
+@comment_type /* %s */
+@compiler gcc main.c
+
+@s C programming a mordern approach exercises
+
+From C PROGRAMMING: A MODERN APPROACH, Second Edition
+By K. N. King
+Copyright (c) 2008, 1996 W. W. Norton & Company, Inc.
+All rights reserved.
+This program may be freely distributed for class use,
+provided that this copyright notice is retained.
+
+
+--- ch8_p3.c
+@{include_directives}
+/* @{define_directives} */
+/* @{type_definitions} */
+/* @{external_variables} */
+/* @{function_prototypes} */
+
+int
+main(void)
+{
+	@{initialise_objects}
+	do {
+		for (int i = 0; i < 10; i++) {
+			digit_seen[i] = false;
+		}
+
+		printf("Enter a number: ");
+		scanf("%ld", &n);
+		tn = n;
+		while (n > 0) {
+			digit = n % 10;
+			if (digit_seen[digit])
+				break;
+			digit_seen[digit] = true;
+			n /= 10;
+		}
+		if (n > 0)
+			printf("Repeated digit\n");
+		else
+			printf("No repeated digit\n");
+
+	} while (tn > 0);
+	return 0;
+}
+/* @{function_definitions} */
+---
+
+--- initialise_objects
+bool digit_seen[10];
+int digit;
+long n, tn;
+---
+
+
+--- include_directives
+#include <stdbool.h>   /* C99 only */
+#include <stdio.h>
+---
+
+

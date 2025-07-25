@@ -1,0 +1,57 @@
+@code_type c .c
+@comment_type /* %s */
+@compiler gcc main.c
+
+@s ch7 p13
+
+--- ch7_p13.c
+@{include_directives}
+int
+main(void)
+{
+	@{initialise_objects}
+	@{get_input}
+	@{print}
+	return 0;
+}
+
+---
+
+--- include_directives
+#include <stdio.h>
+---
+
+--- get_input
+printf("Enter a sentence:");
+---
+
+--- initialise_objects
+char ch;
+int sum = 0;
+int cword_len = 0;
+int words = 0;
+float avg;
+---
+
+
+--- get_input +=
+while ((ch = getchar()) != '\n') {
+	if (ch == ' ') {
+		sum += cword_len;
+		cword_len = 0;
+		words++;
+	}
+	else {
+		cword_len++;
+	}
+}
+sum += cword_len;
+words++;
+avg = (float)sum/(float)words;
+---
+
+--- print
+printf("Average word length: %.1f\n", avg);
+---
+
+

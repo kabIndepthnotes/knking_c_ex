@@ -1,0 +1,26 @@
+@code_type c .c
+@comment_type /* %s */
+@compiler gcc main.c
+
+@s C programming a mordern approach exercises
+
+--- ch8_p2.c
+@{include_directives}
+@{define_directives}
+/* @{type_definitions} */
+typedef struct  {
+	int a;
+} hi;
+@{external_variables}
+@{function_prototypes}
+int
+main(void)
+{
+	@{initialise_objects}
+	return 0;
+}
+
+@{function_definitions}
+
+---
+

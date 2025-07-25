@@ -1,0 +1,59 @@
+@code_type c .c
+@comment_type /* %s */
+@compiler gcc main.c
+
+@s An Indepthnotes Project
+
+--- ch7_p11.c
+/* Name: */
+/* Author: kab@indepthnotes.com */
+/* Donate! indepthnotes.com/donate */
+
+#include <stdio.h>
+
+int
+main(void)
+{
+	@{init_objects}
+	printf("Enter a first and last name:");
+	@{remove_spaces}
+	@{get_first_name}
+	@{remove_spaces}
+	@{get_last_name}
+	@{print}
+	return 0;
+}
+---
+
+@s get string
+--- init_objects
+char current;
+char first[20];
+char last[20];
+---
+
+--- remove_spaces
+while ((current = getchar()) == ' ') {
+	;
+}
+---
+
+--- get_first_name
+for (int i = 0; current != ' ' && i <= 20; i++) {
+	first[i] = current;
+	current = getchar();
+	/* putchar(current); */
+}
+---
+
+--- get_last_name
+for (int i = 0; current != '\n' && i <= 20; i++) {
+	last[i] = current;
+	current = getchar();
+}
+---
+
+--- print
+printf("%s, %c.\n", last,first[0]);
+---
+

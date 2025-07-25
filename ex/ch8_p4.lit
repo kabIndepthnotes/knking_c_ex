@@ -1,0 +1,50 @@
+@code_type c .c
+@comment_type /* %s */
+@compiler gcc main.c
+
+@s C programming a mordern approach exercises
+
+--- ch8_p4.c
+@{include_directives}
+@{define_directives}
+int
+main(void)
+{
+	@{initialise_objects}
+	@{scan_nums}
+	@{print}
+	return 0;
+}
+
+---
+
+--- include_directives
+#include <stdio.h>
+---
+
+--- define_directives
+#define N 10
+---
+
+--- initialise_objects
+int a[N], i;
+int len = sizeof(a) / sizeof(a[0]);
+---
+
+--- scan_nums
+printf("Enter %d numbers: ", N);
+for (i = 0; i < len; i++) {
+	scanf("%d", &a[i]);
+}
+---
+
+--- print
+printf("In reverse order:");
+for (i = len - 1; i >= 0; i--) {
+	printf(" %d", a[i]);
+}
+printf("\n");
+---
+
+
+make a diff between this output.c and original reverse.c

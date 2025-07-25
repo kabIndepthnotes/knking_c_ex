@@ -1,0 +1,21 @@
+@code_type c .c
+@comment_type /* %s */
+@compiler gcc main.c
+
+@s c programming book
+
+--- ch8_p8.c
+@{include_directives}
+@{define_directives}
+@{type_definitions}
+@{external_variables}
+@{function_prototypes}
+int
+main(void)
+{
+	@{initialise_objects}
+	return 0;
+}
+
+@{function_definitions}
+---

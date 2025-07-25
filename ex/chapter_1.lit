@@ -1,0 +1,93 @@
+@code_type c .c
+@comment_type /* %s */
+@compiler gcc main.c
+
+@title Chapter 1
+
+@s hello world
+--- chapter_1_exercise_1.c
+#include <stdio.h>
+int
+main(void)
+{
+	printf("hello, world\n");
+}
+---
+We need to include the standard input output library as the c specification does not include the required functions.
+
+Did you get a warning message from the compiler?
+
+I believe that `main` is supposed to return an int in the book, but doesn't in the example program.
+
+@s directives and statements in the program and identify output
+
+--- chapter_1_exercise_2.c
+/* the line below is an include directive */
+#include <stdio.h>
+int
+main(void)
+/* the "{" brakets below are the compound statement */
+{
+	/* the print statements and the return statements are *statement* */
+	printf("Parkinson's Law:\nWork expands so as to ");
+	printf("fill the time\n");
+	printf("available for its completion.\n");
+	return 0;
+}
+---
+
+@s dweight
+--- chapter_1_exercise_3.c
+/*********************************************************
+ * From C PROGRAMMING: A MODERN APPROACH, Second Edition *
+ * By K. N. King                                         *
+ * Copyright (c) 2008, 1996 W. W. Norton & Company, Inc. *
+ * All rights reserved.                                  *
+ * This program may be freely distributed for class use, *
+ * provided that this copyright notice is retained.      *
+ *********************************************************/
+
+/* dweight.c (Chapter 2, page 20) */
+/* Computes the dimensional weight of a 12" x 10" x 8" box */
+
+#include <stdio.h>
+
+int
+main(void)
+{
+	int height = 8;
+	int length = 12;
+	int width = 10;
+	int volume = height * length * width;
+
+	printf("Dimensions: %dx%dx%d\n", length, width, height);
+	printf("Volume (cubic inches): %d\n", volume);
+	printf("Dimensional weight (pounds): %d\n", (volume + 165) / 166);
+
+	return 0;
+}
+
+---
+
+--- chapter_1_exercise_4.c
+#include <stdio.h>
+
+int
+main(void)
+{
+	int a, b, c;
+	float d, e, f;
+
+	printf("a: %d\n", a);
+	printf("b: %d\n", b);
+	printf("c: %d\n", c);
+
+	printf("d: %f\n", d);
+	printf("e: %f\n", e);
+	printf("d: %f\n", d);
+
+	return 0;
+}
+
+---
+

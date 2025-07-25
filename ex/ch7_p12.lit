@@ -1,0 +1,94 @@
+@code_type c .c
+@comment_type /* %s */
+@compiler gcc main.c
+
+@s An Indepthnotes Project
+
+--- ch7_p12.c
+/* Name: */
+/* Author: kab@indepthnotes.com */
+/* Donate! indepthnotes.com/donate */
+
+/* This sourcefile (ch7_p12.c) will be overwritten in the build step of the literate compilation.*/
+
+#include <stdio.h>
+
+@{func_prot}
+
+int
+main(void)
+{
+	@{vars}
+	@{get_input}
+	return 0;
+}
+
+@{func_def}
+---
+
+--- vars
+char ch;
+char input[20];
+char num[10];
+int index = 0;
+int head = 0;
+float total;
+float num2;
+---
+
+
+--- get_input
+	float num1, num2, result;
+	char sign;
+	printf("Enter two fractions separated by a plus sign: ");
+	scanf("%f %c %f",&num1,&sign, &num2);
+
+	switch (sign) {
+		case '+':
+			result = num1 + num2;
+			break;
+		case '-':
+			result = num1 - num2;
+			break;
+		case '*':
+			result = num1 * num2;
+			break;
+		case '/':
+			result = num1 / num2;
+			break;
+		default:
+			printf("error\n");
+			return 1;
+	}
+	
+---
+
+--- func_prot
+
+---
+
+
+	switch (ch) {
+		case "+":
+			operation = 0;
+			number[index] = '\0';
+			index++;
+
+			total = atoi(number)
+			for (int i = 0; i < index; i++) {
+				
+			}
+			break;
+		case "-":
+			operation = 1;
+			break;
+		case "*":
+			operation = 2;
+			break;
+		case "/":
+			operation = 3;
+			break;
+		default:
+			number[index] = ch;
+			index++;
+	}

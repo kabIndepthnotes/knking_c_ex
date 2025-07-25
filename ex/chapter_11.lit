@@ -1,0 +1,47 @@
+@code_type c .c
+@comment_type /* %s */
+@compiler gcc main.c
+
+@title chapter 11
+
+@s 1
+If `i` is a variable and `p` points to `i`, which of the following expressions are aliases for `i`?
+
+1. `*p`
+2. `*&p`
+3. `*i`
+4. `*&i`
+5. `&p`
+6. `&*p`
+7. `&i`
+8. `&*i`
+
+Answer:
+1. `*p` This is an indirection operator on the pointer `p`.
+4. `*&i` This is the address operator on the variable `i`, which is then dereferenced.
+
+Non-answers:
+2. `*&p` This is an address of `p` which is then dereferenced, which is an alias for `p`
+3. `*i` This is an illegal operation as we are dereferencing a variable that is not a pointer.
+5. `&p` This is an address of a pointer `p`
+6. `&*p` This is `p` dereferenced, which we then take the address of, hence it is an address of `i` and not an alias.
+7. `&i` This is the address of `i`
+8. `&*i` This is again an illegal operation, we dereference a variable that is not a pointer.
+
+We can think of indirection and the address operator as inverses of each other.
+
+
+@s 2
+
+If `i` is a variable and `p` and `q` are pointers to `int`, which of the following assignments are legal?
+1. 
+
+	p = i // unsure, as you are saying a pointer, which stores and address is equal to a number, it might not be in the right range
+	p = &q; // unsure, as &q is an address of a pointer not an int.
+	p = *q; // unsure, *q is an int but p accept int addresses
+	*p = &i; // 1) unsure, we are assigning the variable *p to an address of i
+	p = *&q; // simply put, it is p = q, which is valid as address of p = address of q;
+	*p = q; // see 1)
+	&p = q; // illegal, you are asking for a int address q to be moved to the address &p which now would point to an int and not a pointer. You need to typecast.
+	p = q; //legal, as you are saying that p now points to what q points to. datatypes match.
+	*p = *q; // the variable *p is equal to the value at address *q;
