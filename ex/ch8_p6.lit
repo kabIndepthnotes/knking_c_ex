@@ -1,0 +1,67 @@
+@code_type c .c
+@comment_type /* %s */
+@compiler gcc main.c
+
+@s Cprogramming exercises
+
+--- ch8_p5.c
+@{include_directives}
+int
+main(void)
+{
+	@{initialise_objects}
+	@{scan}
+	@{process}
+	@{print}
+	return 0;
+}
+---
+
+--- include_directives
+#include <stdio.h>
+---
+
+--- initialise_objects
+char str[30];
+---
+
+--- scan
+printf("Enter message: ");
+scanf("%s", &str);
+---
+
+--- initialise_objects +=
+int len = sizeof(str)/sizeof(str[0]);
+---
+
+--- process
+for (int i; i < len; i++) {
+	switch (str[i]) {
+		case 'A':
+			str[i] = '4'
+			break;
+		case 'B':
+			str[i] = '8'
+			break;
+		case 'E':
+			str[i] = '3'
+			break;
+		case 'I':
+			str[i] = '1'
+			break;
+		case 'O':
+			str[i] = '0'
+			break;
+		case 'S':
+			str[i] = '5'
+			break;
+	}
+}
+---
+
+--- print
+printf("%s!!!!!!!!!!\n",str);
+---
+
+
+
