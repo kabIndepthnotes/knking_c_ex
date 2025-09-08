@@ -1,0 +1,85 @@
+/* Name: ch9_ex.c */
+/* Purpose: Solutions to chapter 9 exercises */
+/* Author:  */
+
+/* Include Directives */
+
+/* Define Directives */
+
+/* Type Definitions */
+
+/* External Variables */
+
+/* Function Prototypes */
+void q9_01();
+void q9_02();
+void q9_03();
+void q9_04();
+void q9_05();
+void q9_06();
+void q9_07();
+void q9_08();
+void q9_09();
+void q9_10();
+void q9_11();
+void q9_12();
+void q9_13();
+void q9_14();
+void q9_15();
+void q9_16();
+void q9_17();
+void q9_18();
+void q9_19();
+
+int
+main(void)
+{
+
+	
+
+	return 0;
+}
+
+/* Function Definitions */
+
+/* q9_01
+ * side effects: none
+ */
+void
+q9_01()
+{
+	
+}
+
+/* triangle_area: purpose
+ * params meaning: trivial
+ * return meaning: trivial
+ * side effects:   none
+ */
+double
+triangle_area( double base, double height) // the second argument had no datatype
+{
+	double product; // as it was, triangle_area was only this, as the statement was outside the block.
+	product = base * height;
+
+	return product / 2;
+}
+
+// skip to question 7
+
+/* q9_07
+ * side effects: none
+ */
+void
+q9_07(int a, int b)
+{
+	printf("a) i = f(83, 12) legal\n");
+	printf("b) x = f(83, 12) legal as implicit type conversion should occur\n");
+	printf("c) i = f(3.15, 9.28) legal for same reasons as above\n");
+	printf("d) x = f(3.15, 9.28) legal for same reasons as above \n");
+	printf("e) i = f(83, 12) legal \n");
+	printf("f) f(83, 12) legal but useless \n");
+
+}
+
+

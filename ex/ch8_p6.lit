@@ -2,9 +2,9 @@
 @comment_type /* %s */
 @compiler gcc main.c
 
-@s Cprogramming exercises
+@s C programming exercises
 
---- ch8_p5.c
+--- ch8_p6.c
 @{include_directives}
 int
 main(void)
@@ -25,35 +25,50 @@ main(void)
 char str[30];
 ---
 
+--- initialise_objects +=
+int i = 0;
+char ch;
+---
+
+
 --- scan
 printf("Enter message: ");
-scanf("%s", &str);
+while ((ch = getchar()) != '\n' ) {
+	str[i] = ch;
+	i++;
+}
 ---
 
 --- initialise_objects +=
 int len = sizeof(str)/sizeof(str[0]);
 ---
 
+--- include_directives +=
+#include <ctype.h>
+---
+
+
 --- process
-for (int i; i < len; i++) {
-	switch (str[i]) {
+for (int j = 0; j < len; j++) {
+	str[j] = toupper(str[j]);
+	switch (str[j]) {
 		case 'A':
-			str[i] = '4'
+			str[j] = '4';
 			break;
 		case 'B':
-			str[i] = '8'
+			str[j] = '8';
 			break;
 		case 'E':
-			str[i] = '3'
+			str[j] = '3';
 			break;
 		case 'I':
-			str[i] = '1'
+			str[j] = '1';
 			break;
 		case 'O':
-			str[i] = '0'
+			str[j] = '0';
 			break;
 		case 'S':
-			str[i] = '5'
+			str[j] = '5';
 			break;
 	}
 }
